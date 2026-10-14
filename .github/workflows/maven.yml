@@ -1,0 +1,39 @@
+name: Program 5 - pruebas y cobertura
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar el codigo
+        uses: actions/checkout@v4
+
+      - name: Instalar Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+
+      - name: Compilar, probar y revisar cobertura (mvn verify)
+        run: mvn -B verify
+
+      - name: Correr las 3 pruebas de la Tabla 1
+        run: |
+          java -cp target/classes App 1
+          java -cp target/classes App 2
+          java -cp target/classes App 3
+
+      - name: Guardar el reporte de cobertura
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reporte-cobertura
+          path: target/site/jacoco/

@@ -1,0 +1,10 @@
+# lo genera Maven
+target/
+
+# lo generan el programa y las pruebas
+data/out_test*.txt
+data/prueba_out.txt
+
+# extensiones del editor
+.vscode/
+.github/modernize/
