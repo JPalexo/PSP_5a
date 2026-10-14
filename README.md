@@ -1,6 +1,7 @@
 # Program 5 - Integracion de la distribucion t con Simpson
 
 Programa 5 de PSP (`5a`): integra la distribucion t de 0 a x con la regla de Simpson.
+El diseno sigue el diagrama de clases del profesor (`docs/diagrama_profesor.png`).
 
 ## Requisitos
 
@@ -23,7 +24,7 @@ mvn test
 mvn verify
 ```
 
-- `mvn test`: 23 pruebas JUnit.
+- `mvn test`: 25 pruebas JUnit (Tabla 1, Tabla 2 paso a paso, gamma y el programa completo).
 - `mvn verify`: ademas exige 100 % de cobertura de lineas y ramas (JaCoCo).
 
 El workflow de GitHub Actions (`.github/workflows/maven.yml`) corre `mvn verify` y las tres

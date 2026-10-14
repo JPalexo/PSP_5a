@@ -6,13 +6,13 @@ public class App {
 
         if (args.length == 0) {
             for (int i = 1; i <= 3; i++) {
-                logic.logic5a(i);
+                logic.logic1a(i);
             }
         } else {
             int prueba = Integer.parseInt(args[0]);
 
             if (prueba >= 1 && prueba <= 3) {
-                logic.logic5a(prueba);
+                logic.logic1a(prueba);
             } else {
                 System.out.println("La prueba debe ser 1, 2 o 3");
             }
