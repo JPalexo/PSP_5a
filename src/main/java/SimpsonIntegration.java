@@ -54,9 +54,21 @@ public class SimpsonIntegration {
 
     // G((dof + 1) / 2) / ( raiz(dof * pi) * G(dof / 2) )
     public double computeCoefficient(int intDOF) {
-        double arriba = gamma((intDOF + 1) / 2.0);
-        double abajo = Math.sqrt(intDOF * Math.PI) * gamma(intDOF / 2.0);
-        dblCoeff = arriba / abajo;
+        GammaFunction gamma = new GammaFunction();
+        double arriba;
+        double abajo;
+
+        if (intDOF % 2 == 0) {
+            // dof par: (dof + 1) / 2 tiene .5 y dof / 2 es entero
+            arriba = gamma.computeDblGamma((intDOF + 1) / 2.0);
+            abajo = gamma.computeIntGamma(intDOF / 2);
+        } else {
+            // dof impar: (dof + 1) / 2 es entero y dof / 2 tiene .5
+            arriba = gamma.computeIntGamma((intDOF + 1) / 2);
+            abajo = gamma.computeDblGamma(intDOF / 2.0);
+        }
+
+        dblCoeff = arriba / (Math.sqrt(intDOF * Math.PI) * abajo);
         return dblCoeff;
     }
 
@@ -102,14 +114,4 @@ public class SimpsonIntegration {
         return dblFinalValue;
     }
 
-    // usa la gamma de enteros o la de mitades segun el valor
-    private double gamma(double valor) {
-        GammaFunction gammaFunction = new GammaFunction();
-
-        if (valor == Math.floor(valor)) {
-            return gammaFunction.computeIntGamma((int) valor);
-        }
-
-        return gammaFunction.computeDblGamma(valor);
-    }
 }

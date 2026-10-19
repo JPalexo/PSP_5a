@@ -14,7 +14,8 @@ public class GammaFunction {
         return gammaValue;
     }
 
-    // para mitades: G(x) = (x - 1)(x - 2)...(1/2) * raiz(pi)
+    // para mitades, igual que el ejemplo del PDF:
+    // G(9/2) = 7/2 * 5/2 * 3/2 * 1/2 * raiz(pi)
     public double computeDblGamma(double doubleValue) {
         gammaValue = Math.sqrt(Math.PI);
         double actual = 0.5;
