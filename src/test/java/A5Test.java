@@ -24,7 +24,7 @@ public class A5Test {
     }
 
     // Tabla 1
-
+// assertEquals(0.35006, new Logic().integrar(1.1, 9), 0.00001);
     @Test
     void test1() {
         assertEquals(0.35006, new Logic().integrar(1.1, 9), 0.00001);
