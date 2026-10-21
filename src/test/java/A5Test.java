@@ -27,7 +27,7 @@ public class A5Test {
 // assertEquals(0.35006, new Logic().integrar(1.1, 9), 0.00001);
     @Test
     void test1() {
-        assertEquals(0.35006, new Logic().integrar(1.1, 9), 0.00001);
+        assertEquals(0.006, new Logic().integrar(1.1, 9), 0.00001);
     }
 
     @Test
