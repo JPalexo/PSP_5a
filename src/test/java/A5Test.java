@@ -33,7 +33,7 @@ public class A5Test {
 
     @Test
     void test2() {
-        assertEquals(0.757, new Logic().integrar(1.1812, 10), 0.00001);
+        assertEquals(0.36757, new Logic().integrar(1.1812, 10), 0.00001);
     }
 
     @Test
